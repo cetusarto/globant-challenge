@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-BASE_URL = "https://globant-interview-439580738234.us-central1.run.app"
+BASE_URL = "https://globant-challenge-439580738234.us-central1.run.app"
 
 def upload_file(table_name, file_path):
     """Uploads pdf to the database"""
