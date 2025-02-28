@@ -27,7 +27,7 @@ SELECT
     SUM(CASE WHEN quarter = 4 THEN count ELSE 0 END) AS Q4
 FROM distinct_quarter
 GROUP BY department,job
-ORDER BY department,job);
+ORDER BY department ASC,job ASC);
 
 
 /*
@@ -47,4 +47,5 @@ CREATE OR REPLACE VIEW department_view AS (
     GROUP BY e.department_id, d.department
   )
   SELECT * FROM departments_hires WHERE hired > (SELECT AVG(hired) from departments_hires)
+  ORDER BY HIRED DESC
 );
