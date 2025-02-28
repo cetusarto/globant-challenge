@@ -8,7 +8,7 @@ from database import get_db
 router = APIRouter(prefix="/download", tags=["PDF Download"])
 MAPS = ["job_department", "department"]
 
-@router.get("/{view_name}/", response_class=Response)
+@router.get("/{view_name}/")
 def get_employees_csv(view_name: str, db: Session = Depends(get_db)):
     # Validate the view name
     if view_name not in MAPS:
