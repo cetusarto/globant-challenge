@@ -67,15 +67,13 @@ def process_employees(pdf):
                                 # Asume the extra char finishes the name
                                 else:
                                     row["name"] += extra_char
-                        else:
-                            print(datetime_value)
                     else:
                         datetime_value = ""
 
                     # Add space before all middle uppercase letters in name
-                    row["name"] = re.sub(r"(?<=\w)([A-Z])", r" \1", row["name"])
+                    row["name"] = re.sub(r"(?<=\w)([A-Z])", r" \1", row["name"]) if row["name"] else None
                     # Set to None when empty
-                    row["datetime"] = row["datetime"] if row["datetime"].strip() else None
+                    row["datetime"] = row["datetime"] if row["datetime"] else None
                     row["job_id"] = int(row["job_id"]) if row["job_id"].strip() else None
                     row["department_id"] = int(row["department_id"]) if row["department_id"].strip() else None
 

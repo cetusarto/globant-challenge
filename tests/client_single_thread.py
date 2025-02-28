@@ -14,7 +14,7 @@ def upload_file(table_name, file_path):
 
 def get_data(view_name):
     """Uses the GET method to return the respective view into a pd df"""
-    response = requests.get(f"{BASE_URL}/{view_name}/")
+    response = requests.get(f"{BASE_URL}/download/{view_name}/")
     if response.status_code == 200:
         df = pd.DataFrame(response.json())
         print(f"Retrieved {len(df)} rows from {view_name}.")
