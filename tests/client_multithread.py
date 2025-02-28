@@ -12,7 +12,7 @@ def upload_file(table_name, file_path):
 
 def get_data(view_name, result_dict):
     """Fetches data using the GET method asynchronously."""
-    response = requests.get(f"{BASE_URL}/get/{view_name}/")
+    response = requests.get(f"{BASE_URL}/{view_name}/")
     if response.status_code == 200:
         df = pd.DataFrame(response.json())
         result_dict[view_name] = df 

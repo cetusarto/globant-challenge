@@ -44,6 +44,10 @@ def process_employees(pdf):
             df_4col = pd.DataFrame(page_4col, columns=EXPECTED_HEADERS["employees"]["first_4_cols"])
             df_1col = pd.DataFrame(page_1col, columns=EXPECTED_HEADERS["employees"]["last_col"])
 
+            if df_4col is None or df_1col is None:
+                i+=2
+                continue
+        
             # Merge dataframes and apply transformations
             if len(df_4col) == len(df_1col):
                 df_4col[EXPECTED_HEADERS["employees"]["last_col"][0]] = df_1col.iloc[:, 0] 
