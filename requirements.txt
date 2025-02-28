@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pydantic
+sqlalchemy
+psycopg2-binary
+python-multipart
+pandas
+pdfplumber
+asyncpg
+httpx
+pytest
+pytest-asyncio
+pydantic-settings 
+python-dotenv 
+requests
