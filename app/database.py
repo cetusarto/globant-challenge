@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
-DATABASE_URL = "postgresql://API:Globant@34.27.86.4:5432/hiring"#os.getenv("DATABASE_URL")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Create database engine, session and declare models
 engine = create_engine(DATABASE_URL)

@@ -12,7 +12,7 @@ def get_employees_csv(view_name: str, db: Session = Depends(get_db)):
     
     if view_name not in MAPS : raise HTTPException(status_code=400, detail="Invalid view name. Choose from job_department or departments.")
 
-    query = f"SELECT * FROM {view_name}_view"
+    query = f"SELECT * FROM \"public\".{view_name}_view"
     try:
         # Execute the query
         result = db.execute(query).fetchall()

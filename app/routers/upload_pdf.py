@@ -52,18 +52,21 @@ def process_employees(pdf):
                     # Extract datetime column value
                     datetime_value = row["datetime"]
                     # Check if first 4 characters have a digit to start process (Important step due to poor readability on pdf)
-                    if len(datetime_value) >= 4:
-                        if not datetime_value[:4].isdigit():
-                            extra_char = datetime_value[0]
-                            row["datetime"] = datetime_value[1:]
-                            # Append extra char to name column based on case
-                            if extra_char.isupper():
-                                row["name"] += f" {extra_char}"
-                            # Asume the extra char finishes the name
-                            else:
-                                row["name"] += extra_char
+                    if datetime_value:
+                        if len(datetime_value) >= 4:
+                            if not datetime_value[:4].isdigit():
+                                extra_char = datetime_value[0]
+                                row["datetime"] = datetime_value[1:]
+                                # Append extra char to name column based on case
+                                if extra_char.isupper():
+                                    row["name"] += f" {extra_char}"
+                                # Asume the extra char finishes the name
+                                else:
+                                    row["name"] += extra_char
+                        else:
+                            print(datetime_value)
                     else:
-                        print(datetime_value)
+                        datetime_value = ""
 
                     # Add space before all middle uppercase letters in name
                     row["name"] = re.sub(r"(?<=\w)([A-Z])", r" \1", row["name"])

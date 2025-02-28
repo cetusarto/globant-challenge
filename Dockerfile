@@ -1,6 +1,6 @@
 FROM python:3.10
 
-ENV DATABASE_URL=postgresql://API:Globant@34.27.86.4:5432/hiring
+ENV DATABASE_URL=postgresql://API:Globant@10.16.176.3:5432/hiring
 
 WORKDIR /app
 
